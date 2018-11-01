@@ -1,7 +1,15 @@
 [package]
 name = "pestql"
-version = "0.1.0"
+version = "0.0.1"
 authors = ["Ryan Blecher <notryanb@gmail.com>"]
+
+#documentation = "https://docs.rs/pestql"
+homepage = "https://github.com/notryanb/pestql"
+repository = "https://github.com/notryanb/pestql.git"
+
+description = "Postgres SQL parser using PEST"
+
+license = "MIT"
 
 [dependencies]
 pest = "2.0"

@@ -1,5 +1,10 @@
 WHITESPACE = _{ " " }
-keyword = { "select" | "from" }
+keyword = { ^"select" | ^"from" | ^"where" }
 selection = @{ (ASCII_ALPHANUMERIC | "_")+ ~ ("," ~ selection)* | "*" }
 terminator = { ";" }
-sql = { keyword ~ selection ~ keyword ~ selection ~ terminator }
+sql = { (keyword ~ selection)+ ~ terminator }
+
+
+// Experimental
+column = @{ ("*" ~ !".") | (ASCII_ALPHANUMERIC | "_")+ ~ ("." ~ (ASCII_ALPHANUMERIC | "_" | "*")+)* }
+column_selection = { column+ ~ ("," ~ column)+ ~ !"," }

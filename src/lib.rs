@@ -40,6 +40,12 @@ mod tests {
     }
 
         #[test]
+    fn parses_select_many_columns_with_spaces() {
+        let statement = "select something, another_one, yet_another, so_many_columns from test;";
+        assert_eq!(true, is_valid_sql(statement))
+    }
+
+        #[test]
     fn error_when_trailing_comma_in_select() {
         let statement = "select something,another_one,yet_another,so_many_columns, from test;";
         assert_eq!(false, is_valid_sql(statement))
