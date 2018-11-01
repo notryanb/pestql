@@ -10,4 +10,4 @@ ident = { (ASCII_ALPHANUMERIC | "_")+ }
 access_operator = { "." }
 star_operator = { "*" }
 column = { (star_operator ~ !access_operator) | ident ~ (access_operator ~ (ident | star_operator)+)* }
-column_selection = { column+ ~ ("," ~ column)+ ~ !"," }
+column_selection = { column ~ ("," ~ column)* ~ !"," }
